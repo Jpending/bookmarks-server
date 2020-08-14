@@ -9,8 +9,8 @@ const errorHandler = require('./error-handler');
 const validateBearerToken = require('./validateBearerToken');
 
 const app = express();
-
-app.use(morgan((NODE_ENV === 'production') ? 'tiny' : 'common'));
+const morganSetting = (NODE_ENV === 'production') ? 'tiny' : 'common';
+app.use(morgan(morganSetting));
 app.use(cors());
 app.use(helmet());
 app.use(validateBearerToken);
