@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 
+
+require('dotenv').config();
 const { NODE_ENV } = require('./config');
 const logger = require('./logger');
 

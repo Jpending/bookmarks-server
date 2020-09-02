@@ -1,4 +1,5 @@
 
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -13,10 +14,7 @@ const app = express();
 app.use(morgan((NODE_ENV === 'production') ? 'tiny' : 'common', {
   skip: () => NODE_ENV === 'test'
 }));
-app.use(cors((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-}));
+app.use(cors());
 app.use(helmet());
 app.use(validateBearerToken);
 

@@ -2,7 +2,7 @@ const knex = require('knex');
 const fixtures = require('./bookmarks-fixtures');
 const app = require('../src/app');
 const supertest = require('supertest');
-
+require('dotenv').config();
 
 describe('Bookmarks Endpoints', () => {
   let db;
