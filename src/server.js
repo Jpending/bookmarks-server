@@ -7,10 +7,7 @@ const db = knex({
   client: 'pg',
   connection: DATABASE_URL,
 });
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+
 app.set('db', db);
 
 app.listen(PORT, () => {

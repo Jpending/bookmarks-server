@@ -13,13 +13,13 @@ const app = express();
 app.use(morgan((NODE_ENV === 'production') ? 'tiny' : 'common', {
   skip: () => NODE_ENV === 'test'
 }));
-app.use(cors());
-app.use(helmet());
-app.use(validateBearerToken);
-app.use((req, res, next) => {
+app.use(cors((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
-});
+}));
+app.use(helmet());
+app.use(validateBearerToken);
+
 app.use('/api/bookmarks', bookmarksRouter);
 
 app.get('/', (req, res) => {
