@@ -21,7 +21,7 @@ bookmarksRouter
     // res.header('Access-Control-Allow-Origin', '*');
     BookmarksService.getAllBookmarks(req.app.get('db'))
       .then(bookmarks => {
-        res.header('Access-Control-Allow-Origin', '*').json(bookmarks.map(serializeBookmark));
+        res.json(bookmarks.map(serializeBookmark));
       })
       .catch(next);
   })
