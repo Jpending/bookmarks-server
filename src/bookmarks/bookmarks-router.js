@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const path = require('path');
 const express = require('express');
 const xss = require('xss');
@@ -69,7 +70,7 @@ bookmarksRouter
         if (!bookmark) {
           logger.error(`Bookmark with id ${bookmark_id} not found.`);
           return res.status(404).json({
-            error: { message: `Bookmark Not Found` }
+            error: { message: 'Bookmark Not Found' }
           });
         }
 
@@ -103,10 +104,10 @@ bookmarksRouter
 
     const numberOfValues = Object.values(bookmarkToUpdate).filter(Boolean).length;
     if (numberOfValues === 0) {
-      logger.error(`Invalid update without required fields`);
+      logger.error('Invalid update without required fields');
       return res.status(400).json({
         error: {
-          message: `Request body must content either 'title', 'url', 'description' or 'rating'`
+          message: 'Request body must content either \'title\', \'url\', \'description\' or \'rating\''
         }
       });
     }
